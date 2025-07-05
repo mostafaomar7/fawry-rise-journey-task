@@ -1,8 +1,9 @@
 const ShippingService = require('./services/ShippingService');
 
+// Handles the checkout process for a customer and their cart
 function checkout(customer, cart) {
   if (cart.isEmpty()) {
-    throw new Error("Cart is empty");
+    throw new Error("Cart is empty. Please add items before checkout.");
   }
 
   let subtotal = 0;
@@ -30,6 +31,10 @@ function checkout(customer, cart) {
 
   if (shippableItems.length > 0) {
     ShippingService.ship(shippableItems);
+  }
+
+  if (customer.balance < total) {
+    throw new Error(" Insufficient balance for checkout.");
   }
 
   console.log("** Checkout receipt **");

@@ -49,8 +49,6 @@ How to Run:
 
 1. Open the terminal and navigate to the project folder:
 
-   cd fawry-ecommerce-js
-
 2. Run the project using Node.js:
 
    node index.js
